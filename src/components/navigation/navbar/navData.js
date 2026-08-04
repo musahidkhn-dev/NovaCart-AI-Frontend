@@ -1,22 +1,22 @@
-export const navItems = [
+export const navLinks = [
   {
     id: 1,
     label: "Products",
-    path: "/products",
+    href: "#featured-products",
   },
   {
     id: 2,
     label: "Categories",
-    path: "/categories",
+    href: "#categories",
   },
   {
     id: 3,
     label: "Brands",
-    path: "/brands",
+    href: "#brands",
   },
   {
     id: 4,
     label: "AI Assistant",
-    path: "/ai",
+    href: "#ai-compare",
   },
 ];

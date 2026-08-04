@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 
-@theme   {
+@theme{
 
   /* ===========================
       Colors
@@ -66,4 +66,18 @@
       "Plus Jakarta Sans",
       sans-serif;
 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide horizontal scrollbar */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
 }

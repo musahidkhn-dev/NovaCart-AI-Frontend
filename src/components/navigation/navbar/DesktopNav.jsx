@@ -1,17 +1,17 @@
-import { NavLink } from "react-router-dom";
-import { navItems } from "./navData";
+
+import { navLinks } from "./navData";
 
 const DesktopNav = () => {
   return (
     <nav className="hidden items-center gap-8 lg:flex">
-      {navItems.map((item) => (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          className="text-sm font-medium text-muted transition-colors duration-200 hover:text-text"
+      {navLinks.map((item) => (
+        <a
+          key={item.id}
+          href={item.href}
+          className="relative text-sm font-medium text-muted transition-colors duration-300 hover:text-primary"
         >
           {item.label}
-        </NavLink>
+        </a>
       ))}
     </nav>
   );
