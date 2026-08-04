@@ -10,7 +10,7 @@ export const productData = [
     reviews: 245,
     aiScore: 98,
     badge: "AI Pick",
-    image: "/images/hero/macbook.png",
+    image: "/src/public/images/hero/macbook.png",
     inStock: true,
   },
   {
@@ -23,7 +23,7 @@ export const productData = [
     reviews: 187,
     aiScore: 97,
     badge: "Best Audio",
-    image: "/images/hero/sony.png",
+    image: "/src/public/images/hero/sony.png",
     inStock: true,
   },
   {
@@ -36,7 +36,7 @@ export const productData = [
     reviews: 152,
     aiScore: 95,
     badge: "Trending",
-    image: "/images/hero/nike.png",
+    image: "/src/public/images/hero/nike.png",
     inStock: true,
   },
   {
@@ -49,7 +49,7 @@ export const productData = [
     reviews: 320,
     aiScore: 99,
     badge: "Editor's Choice",
-    image: "/images/hero/iphone.png",
+    image: "/src/public/images/hero/iphone.png",
     inStock: true,
   },
 ];
