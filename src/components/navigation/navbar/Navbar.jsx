@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
+import NavbarActions from "./NavbarAction"
 
 const Navbar = () => {
   return (
@@ -11,9 +12,15 @@ const Navbar = () => {
 
         <DesktopNav />
 
+        <div className="flex items-center gap-3">
+
+          <NavbarActions />
+
         <MobileNav />
 
-      </div>
+        </div>
+ 
+       </div>
     </header>
   );
 };
