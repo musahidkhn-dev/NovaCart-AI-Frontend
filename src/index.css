@@ -1,1 +1,69 @@
 @import "tailwindcss";
+
+
+@theme   {
+
+  /* ===========================
+      Colors
+  =========================== */
+
+  --color-background: #F7F6F3;
+
+  --color-surface: #FFFFFF;
+
+  --color-surface-alt: #F0EEEA;
+
+  --color-primary: #9A5B2E;
+
+  --color-primary-hover: #7E4B26;
+
+  --color-secondary: #1F1F1F;
+
+  --color-border: #E4E2DD;
+
+  --color-text: #1C1C1C;
+
+  --color-muted: #6F6B65;
+
+  --color-success: #2F855A;
+
+  --color-warning: #C68A00;
+
+  --color-danger: #C0392B;
+
+
+  /* ===========================
+      Radius
+  =========================== */
+
+  --radius-xs: 6px;
+
+  --radius-sm: 10px;
+
+  --radius-md: 16px;
+
+  --radius-lg: 24px;
+
+  --radius-xl: 32px;
+
+
+  /* ===========================
+      Shadow
+  =========================== */
+
+  --shadow-soft:
+      0 8px 30px rgba(0,0,0,.06);
+
+  --shadow-card:
+      0 16px 40px rgba(0,0,0,.08);
+
+
+  /* ===========================
+      Font
+  =========================== */
+
+  --font-sans:
+      "Plus Jakarta Sans",
+      sans-serif;
+
+}
