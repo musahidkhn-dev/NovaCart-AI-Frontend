@@ -23,7 +23,7 @@ export const productData = [
     reviews: 187,
     aiScore: 97,
     badge: "Best Audio",
-    image: "/src/public/images/hero/sony.png",
+    image: "/src/public/images/hero/sony.jpg",
     inStock: true,
   },
   {

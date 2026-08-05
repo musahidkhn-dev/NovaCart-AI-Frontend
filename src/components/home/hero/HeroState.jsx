@@ -18,14 +18,14 @@ const stats = [
 
 const HeroStats = () => {
   return (
-    <div className="mt-12 flex flex-wrap gap-10">
+    <div className="mt-8 flex flex-wrap gap-8">
       {stats.map((item) => (
         <div key={item.id}>
-          <h3 className="text-3xl font-bold text-text">
+          <h3 className="text-2xl font-bold text-text">
             {item.value}
           </h3>
 
-          <p className="mt-1 text-sm text-muted">
+          <p className="mt-0.5 text-sm text-muted">
             {item.label}
           </p>
         </div>

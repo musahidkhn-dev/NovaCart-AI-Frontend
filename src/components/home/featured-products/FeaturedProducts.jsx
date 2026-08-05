@@ -21,7 +21,7 @@ const FeaturedProducts = () => {
   return (
     <Section
       id="featured-products"
-      className="bg-white py-24"
+      className="bg-white pt-8 pb-10"
     >
       <Container>
         {/* Header */}
@@ -32,15 +32,15 @@ const FeaturedProducts = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+          <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
             Featured Products
           </span>
 
-          <h2 className="mt-6 text-5xl font-black tracking-tight">
+          <h2 className="mt-3 text-4xl lg:text-[42px] font-black leading-tight">
             Discover Nova AI's Picks
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted">
+          <p className="mx-auto mt-2 max-w-xl text-base leading-6 text-muted">
             Handpicked products based on quality, popularity, value,
             and AI recommendations.
           </p>
@@ -48,12 +48,12 @@ const FeaturedProducts = () => {
 
         {/* Tabs */}
 
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-5 flex flex-wrap justify-center gap-2">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`rounded-full px-5 py-3 text-sm font-medium transition-all ${
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
                 activeTab === tab
                   ? "bg-primary text-white"
                   : "border border-border bg-white hover:border-primary"
@@ -66,19 +66,20 @@ const FeaturedProducts = () => {
 
         {/* Products */}
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {productData.map((product) => (
-            <div className="flex justify-center"><ProductCard
+            <div 
               key={product.id}
-              product={product}
-            /></div>
+              className="flex justify-center">
+            <ProductCard product={product}/>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
 
-        <div className="mt-14 flex justify-center">
-          <button className="group inline-flex items-baseline gap-1 rounded-full border border-border px-7 py-4 font-medium transition-all hover:border-primary hover:bg-primary/5">
+        <div className="mt-6 flex justify-center">
+          <button className="group inline-flex items-baseline gap-1 rounded-full border border-border px-6 py-3 font-medium transition-all hover:border-primary hover:bg-primary/5">
             View All Products
 
             <ArrowRight

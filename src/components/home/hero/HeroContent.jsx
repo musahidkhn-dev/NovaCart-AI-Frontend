@@ -13,13 +13,13 @@ const HeroContent = ({ slide }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -30 }}
         transition={{ duration: 0.5 }}
-        className="max-w-2xl"
+        className="max-w-xl"
       >
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
           AI Commerce Platform
         </p>
 
-        <h1 className="text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[84px]">
+        <h1 className="text-5xl font-black leading-[0.95] tracking-tight  lg:text-6xl ">
           {slide.title}
 
           <br />
@@ -29,7 +29,7 @@ const HeroContent = ({ slide }) => {
           </span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-lg leading-8 text-muted lg:text-xl">
+        <p className="mt-4 max-w-lg text-base leading-7 text-muted ">
           {slide.description}
         </p>
 
