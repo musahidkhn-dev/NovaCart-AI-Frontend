@@ -4,7 +4,7 @@ import HeroSearch from "./HeroSearch";
 import HeroActions from "./HeroActions";
 import HeroStats from "./HeroState";
 
-const HeroContent = ({ slide }) => {
+const HeroContent = ({ slide, setIsPaused }) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -34,10 +34,12 @@ const HeroContent = ({ slide }) => {
         </p>
 
         <HeroSearch
+          setIsPaused={setIsPaused}
           placeholder={slide.searchPlaceholder}
         />
 
         <HeroActions
+        setIsPaused={setIsPaused}
           primary={slide.ctaPrimary}
           secondary={slide.ctaSecondary}
         />

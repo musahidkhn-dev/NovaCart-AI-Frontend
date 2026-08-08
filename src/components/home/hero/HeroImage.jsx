@@ -8,12 +8,12 @@ const HeroImage = ({
   nextSlide,
   previousSlide,
   progress,
-  
+  setIsPaused,
 }) => {
   return (
     <AnimatePresence mode="sync">
       <motion.div
-       initial={{ opacity: 0, scale: 0.94 }}
+        initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.94 }}
         transition={{ duration: 0.5 }}
@@ -26,8 +26,9 @@ const HeroImage = ({
         {/* Product Card */}
 
         <div
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="overflow-hidden rounded-[36px] border border-white/70 bg-white shadow-xl backdrop-blur-xl"
-        
         >
           <div className="relative flex h-[260px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#FFF9F3] via-white to-[#F8F5EF] p-4">
             <div className="absolute h-72 w-72 rounded-full bg-primary/10 blur-[80px]" />

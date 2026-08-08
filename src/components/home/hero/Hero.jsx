@@ -10,8 +10,8 @@ import { heroSlides } from "./HeroSlide";
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
-
   const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
     setActiveSlide((prev) => (prev + 1) % heroSlides.length);
@@ -24,6 +24,7 @@ const Hero = () => {
   };
 
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setProgress((prev) => {
         const next = prev + 1;
@@ -38,7 +39,7 @@ const Hero = () => {
     }, 40);
 
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [nextSlide, isPaused]);
 
   return (
     <Section className="relative overflow-hidden pt-4 pb-10 lg:pt-12 lg:pb-12">
@@ -46,8 +47,11 @@ const Hero = () => {
       <div className="absolute -left-40 top-20 -z-10 h-96 w-96 rounded-full bg-primary/10 blur-[140px]" />
       <div className="absolute -right-40 bottom-10 -z-10 h-[420px] w-[420px] rounded-full bg-amber-200/20 blur-[160px]" />
       <Container>
-        <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <HeroContent slide={heroSlides[activeSlide]} />
+        <div
+          
+          className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]"
+        >
+          <HeroContent setIsPaused={setIsPaused} slide={heroSlides[activeSlide]} />
 
           <HeroImage
             slide={heroSlides[activeSlide]}
@@ -56,6 +60,7 @@ const Hero = () => {
             nextSlide={nextSlide}
             previousSlide={previousSlide}
             progress={progress}
+            setIsPaused={setIsPaused}
           />
         </div>
       </Container>
