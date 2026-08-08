@@ -4,7 +4,7 @@ export const aiProducts = [
       name: "Lenovo LOQ",
       specs: "RTX 4050 • i5 13th Gen",
       price: "₹74,990",
-      image: "/src/public/images/products/log.png",
+      image: "/images/products/log.png",
     },
 
     {
@@ -12,7 +12,7 @@ export const aiProducts = [
       name: "ASUS Vivobook",
       specs: "i7 • OLED Display",
       price: "₹76,490",
-      image: "/src/public/images/products/vivobook.png",
+      image: "/images/products/vivobook.png",
     },
 
     {
@@ -20,6 +20,6 @@ export const aiProducts = [
       name: "Acer Nitro V",
       specs: "RTX 4050 • Gaming",
       price: "₹78,990",
-      image: "/src/public/images/products/nitro.png",
+      image: "/images/products/nitro.png",
     },
   ];

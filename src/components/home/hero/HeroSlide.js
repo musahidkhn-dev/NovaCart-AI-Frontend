@@ -22,7 +22,7 @@ export const heroSlides = [
       rating: 4.9,
       aiScore: 98,
       badge: "AI Pick",
-      image: "/src/public/images/hero/macBook.png",
+      image: "/images/hero/macbook.png",
     },
 
     ai: {
@@ -64,7 +64,7 @@ export const heroSlides = [
       rating: 4.8,
       aiScore: 97,
       badge: "Best Audio",
-      image: "/src/public/images/hero/sony.jpg",
+      image: "images/hero/sony.jpg",
     },
 
     ai: {
@@ -106,7 +106,7 @@ export const heroSlides = [
       rating: 4.9,
       aiScore: 99,
       badge: "Editor's Choice",
-      image: "/src/public/images/hero/iphone.png",
+      image: "/images/hero/iphone.png",
     },
 
     ai: {
@@ -148,7 +148,7 @@ export const heroSlides = [
       rating: 4.7,
       aiScore: 95,
       badge: "Comfort Pick",
-      image: "/src/public/images/hero/nike.png  ",
+      image: "/images/hero/nike.png  ",
     },
 
     ai: {

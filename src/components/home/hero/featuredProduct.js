@@ -11,7 +11,7 @@ export const featuredProducts = [
     name: "Sony WH-1000XM6",
     price: "₹34,999",
     brand: "Sony",
-    image: "/src/public/images/hero/sony.jpg",
+    image: "/images/hero/sony.jpg",
   },
   {
     id: 3,
