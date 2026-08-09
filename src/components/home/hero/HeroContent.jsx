@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import HeroSearch from "./HeroSearch";
 import HeroActions from "./HeroActions";
-import HeroStats from "./HeroState";
+import HeroStats from "./HeroStats";
 
 const HeroContent = ({ slide, setIsPaused }) => {
   return (
