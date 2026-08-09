@@ -8,6 +8,8 @@ import Register from "../Pages/Register";
 import ForgotPassword from "../Pages/ForgotPassword";
 import ResetPassword from "../Pages/ResetPassword";
 import NotFound from "../Pages/NotFound";
+import Products from "../pages/Products";
+
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
         path: "reset-password/:token",
         element: <ResetPassword />,
       },
+      {
+        path: "/products",
+        element: <Products />
+      }
     ],
   },
   {
