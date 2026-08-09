@@ -2,6 +2,7 @@ import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import ProductRating from "./ProductRating";
 import ProductActions from "./ProductActions";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
@@ -16,9 +17,11 @@ const ProductCard = ({ product }) => {
       )}
 
       {/* Image Section */}
-      <div className="relative h-[155px] w-full rounded-xl bg-[#faf8f5]">
-        <ProductImage image={product.image} title={product.title} />
-      </div>
+      <Link to={`/products/${product.id}`} className="block">
+        <div className="relative h-[155px] w-full rounded-xl bg-[#faf8f5]">
+          <ProductImage image={product.image} title={product.title} />
+        </div>
+      </Link>
 
       {/* Product Details */}
       <div className="mt-4">
@@ -28,9 +31,11 @@ const ProductCard = ({ product }) => {
 
         <div className="grid grid-cols-[1fr_auto] items-start gap-x-3">
           <div>
-            <h3 className="line-clamp-2 text-base font-bold leading-tight">
-              {product.title}
-            </h3>
+            <Link to={`/products/${product.id}`} className="block">
+              <h3 className="line-clamp-2 text-base font-bold leading-tight transition hover:text-primary">
+                {product.title}
+              </h3>
+            </Link>
 
             <div className="mt-1.5">
               <ProductRating
