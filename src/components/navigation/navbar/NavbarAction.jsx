@@ -1,31 +1,49 @@
 import { Search, Heart, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const NavbarActions = () => {
-  return (
-    <div className="hidden items-center gap-3 lg:flex">
+import { useCart } from "../../../context/useCart";
+import { useWishlist } from "../../../context/useWishlist";
 
+const NavbarActions = () => {
+  const { cartCount } = useCart();
+  const { wishlistItems } = useWishlist();
+
+  return (
+    <div className="flex items-center gap-3">
       <button
+        type="button"
         className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 hover:bg-surface-alt"
       >
         <Search size={18} />
       </button>
 
-      <button
-        className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 hover:bg-surface-alt"
+      <Link
+        to="/wishlist"
+        aria-label="Open wishlist"
+        className="relative flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 hover:bg-surface-alt"
       >
         <Heart size={18} />
-      </button>
 
-      <button
+        {wishlistItems.length > 0 && (
+          <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white">
+            {wishlistItems.length}
+          </span>
+        )}
+      </Link>
+
+      <Link
+        to="/cart"
+        aria-label="Open cart"
         className="relative flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 hover:bg-surface-alt"
       >
         <ShoppingCart size={18} />
 
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white">
-          0
-        </span>
-      </button>
+        {cartCount > 0 && (
+          <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white">
+            {cartCount}
+          </span>
+        )}
+      </Link>
 
       <Link
         to="/login"
@@ -33,7 +51,6 @@ const NavbarActions = () => {
       >
         Login
       </Link>
-
     </div>
   );
 };

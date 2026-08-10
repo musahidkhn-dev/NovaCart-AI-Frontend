@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import Container from "../../ui/Container";
 import Section from "../../ui/Section";
@@ -8,21 +9,13 @@ import Section from "../../ui/Section";
 import ProductCard from "./ProductCard";
 import { productData } from "./productData";
 
-const tabs = [
-  "All",
-  "AI Picks",
-  "Trending",
-  "Best Rated",
-];
+const tabs = ["All", "AI Picks", "Trending", "Best Rated"];
 
 const FeaturedProducts = () => {
   const [activeTab, setActiveTab] = useState("All");
 
   return (
-    <Section
-      id="featured-products"
-      className="bg-white pt-8 pb-10"
-    >
+    <Section id="featured-products" className="bg-white pt-8 pb-10">
       <Container>
         {/* Header */}
 
@@ -41,8 +34,8 @@ const FeaturedProducts = () => {
           </h2>
 
           <p className="mx-auto mt-2 max-w-xl text-base leading-6 text-muted">
-            Handpicked products based on quality, popularity, value,
-            and AI recommendations.
+            Handpicked products based on quality, popularity, value, and AI
+            recommendations.
           </p>
         </motion.div>
 
@@ -68,10 +61,8 @@ const FeaturedProducts = () => {
 
         <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {productData.map((product) => (
-            <div 
-              key={product.id}
-              className="flex justify-center">
-            <ProductCard product={product}/>
+            <div key={product.id} className="flex justify-center">
+              <ProductCard product={product} />
             </div>
           ))}
         </div>
@@ -79,14 +70,16 @@ const FeaturedProducts = () => {
         {/* CTA */}
 
         <div className="mt-6 flex justify-center">
-          <button className="group inline-flex items-baseline gap-1 rounded-full border border-border px-6 py-3 font-medium transition-all hover:border-primary hover:bg-primary/5">
-            View All Products
-
+          <Link
+            to="/products"
+            className="group inline-flex items-baseline gap-1 rounded-full border border-border px-6 py-3 font-medium transition-all hover:border-primary hover:bg-primary/5"
+          >
+            <span>View All Products</span>
             <ArrowRight
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
-          </button>
+          </Link>
         </div>
       </Container>
     </Section>

@@ -1,10 +1,15 @@
+import { Heart } from "lucide-react";
 import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import ProductRating from "./ProductRating";
 import ProductActions from "./ProductActions";
 import { Link } from "react-router-dom";
+import { useWishlist } from "../../../context/useWishlist";
 
 const ProductCard = ({ product }) => {
+  const { toggleWishlist, isInWishlist } = useWishlist();
+
+  const wishlist = isInWishlist(product.id);
   return (
     <div className="group overflow-hidden rounded-2xl border border-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {/* Recommendation */}
@@ -17,11 +22,31 @@ const ProductCard = ({ product }) => {
       )}
 
       {/* Image Section */}
-      <Link to={`/products/${product.id}`} className="block">
-        <div className="relative h-[155px] w-full rounded-xl bg-[#faf8f5]">
+      <div className="relative h-[155px] w-full rounded-xl bg-[#faf8f5]">
+        <Link to={`/products/${product.id}`} className="block h-full">
           <ProductImage image={product.image} title={product.title} />
-        </div>
-      </Link>
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => toggleWishlist(product)}
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-white shadow-sm transition-all duration-200 hover:scale-105 hover:border-primary"
+          aria-label={
+            wishlist
+              ? `Remove ${product.title} from wishlist`
+              : `Add ${product.title} to wishlist`
+          }
+        >
+          <Heart
+            size={17}
+            className={
+              wishlist
+                ? "fill-primary text-primary"
+                : "text-muted hover:text-primary"
+            }
+          />
+        </button>
+      </div>
 
       {/* Product Details */}
       <div className="mt-4">
@@ -62,7 +87,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div className="mt-2">
-          <ProductActions />
+          <ProductActions product={product} />
         </div>
       </div>
     </div>
