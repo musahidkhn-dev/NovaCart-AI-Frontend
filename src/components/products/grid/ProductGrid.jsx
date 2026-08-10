@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
-import { products } from "../data/products";
 
-const ProductGrid = () => {
+
+const ProductGrid = ({products}) => {
   return (
     <div className="grid grid-cols-1 gap-6 2xl:grid-cols-3">
       {products.map((product) => (

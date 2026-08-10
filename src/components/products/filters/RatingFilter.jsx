@@ -1,7 +1,7 @@
 import FilterSection from "./FilterSection";
 import { ratings } from "./filterData";
 
-const RatingFilter = () => {
+const RatingFilter = ({filters, setFilters}) => {
   return (
     <FilterSection title="Rating">
       <div className="space-y-3">
@@ -13,6 +13,16 @@ const RatingFilter = () => {
             <input
               type="radio"
               name="rating"
+              checked={filters.rating === rating.value}
+              onChange={() => {
+                setFilters((prev) => ({
+                  ...prev,
+                  rating:
+                    prev.rating === rating.value
+                      ? null
+                      : rating.value,
+                }));
+              }}
               className="h-4 w-4 accent-primary"
             />
 

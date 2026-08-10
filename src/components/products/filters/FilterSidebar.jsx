@@ -2,24 +2,36 @@ import CategoryFilter from "./CategoryFilter";
 import BrandFilter from "./BrandFilter";
 import PriceFilter from "./PriceFilter";
 import RatingFilter from "./RatingFilter";
-import AIScoreFilter from "./AIScoreFilter";
 
-const FilterSidebar = () => {
+const FilterSidebar = ({ filters, setFilters }) => {
   return (
     <div className="rounded-3xl border border-border bg-white p-6 shadow-sm">
-      <h2 className="mb-6 text-xl font-bold">
-        Filters
-      </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold py-2">Filters</h2>
 
-      <CategoryFilter />
+        <button
+          type="button"
+          onClick={() =>
+            setFilters({
+              category: "",
+              brand: "",
+              price: null,
+              rating: null,
+            })
+          }
+          className="text-xs font-medium text-primary transition hover:opacity-80"
+        >
+          Clear all
+        </button>
+      </div>
+
+      <CategoryFilter filters={filters} setFilters={setFilters} />
       <div className="my-6" />
-      <BrandFilter />
+      <BrandFilter filters={filters} setFilters={setFilters} />
       <div className="my-6" />
-      <PriceFilter />
+      <PriceFilter filters={filters} setFilters={setFilters} />
       <div className="my-6" />
-      <RatingFilter />
-      <div className="my-6" />
-      <AIScoreFilter />
+      <RatingFilter filters={filters} setFilters={setFilters} />
     </div>
   );
 };

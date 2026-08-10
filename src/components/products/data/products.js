@@ -2,13 +2,13 @@ export const products = [
   {
     id: 1,
     brand: "Apple",
+    category: "Laptops",
     title: "MacBook Air M4",
     image: "/images/products/macbook.png",
     rating: 4.8,
     reviews: 124,
     price: 119900,
     originalPrice: 139900,
-    aiScore: 98,
     isAIPick: true,
 
     description:
@@ -43,13 +43,13 @@ export const products = [
   {
     id: 2,
     brand: "Samsung",
+    category: "Smartphones",
     title: "Galaxy S25 Ultra",
     image: "/images/products/s25.png",
     rating: 4.7,
     reviews: 342,
     price: 104999,
     originalPrice: 119999,
-    aiScore: 95,
     isAIPick: true,
 
     description:
@@ -83,13 +83,13 @@ export const products = [
   {
     id: 3,
     brand: "Google",
+    category: "Smartphones",
     title: "Pixel 9 Pro XL",
     image: "/images/products/pixel-9-pro-xl.png",
     rating: 4.6,
     reviews: 218,
     price: 109999,
     originalPrice: 124999,
-    aiScore: 94,
     isAIPick: true,
 
     description:
@@ -125,12 +125,12 @@ export const products = [
     id: 4,
     brand: "OnePlus",
     title: "OnePlus 13",
+    category: "Smartphones",
     image: "/images/products/oneplus-13.png",
-    rating: 4.7,
+    rating: 2.7,
     reviews: 287,
     price: 69999,
     originalPrice: 79999,
-    aiScore: 92,
     isAIPick: true,
 
     description:
@@ -164,13 +164,13 @@ export const products = [
   {
     id: 5,
     brand: "Sony",
+    category: "Headphones",
     title: "Sony WH-1000XM5",
     image: "/images/products/sony-xm5.jpg",
     rating: 4.8,
     reviews: 456,
     price: 29990,
     originalPrice: 34990,
-    aiScore: 96,
     isAIPick: true,
 
     description:
@@ -205,13 +205,13 @@ export const products = [
   {
     id: 6,
     brand: "Dell",
+    category: "Laptops",
     title: "Dell XPS 14",
     image: "/images/products/dell-xps-14.png",
     rating: 4.5,
     reviews: 173,
     price: 149990,
     originalPrice: 169990,
-    aiScore: 89,
     isAIPick: false,
 
     description:

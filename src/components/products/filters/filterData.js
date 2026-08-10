@@ -59,20 +59,3 @@ export const ratings = [
   },
 ];
 
-export const aiScores = [
-  {
-    id: 1,
-    label: "90+ AI Score",
-    value: 90,
-  },
-  {
-    id: 2,
-    label: "80+ AI Score",
-    value: 80,
-  },
-  {
-    id: 3,
-    label: "70+ AI Score",
-    value: 70,
-  },
-];

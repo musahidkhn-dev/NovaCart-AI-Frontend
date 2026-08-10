@@ -1,7 +1,7 @@
 import FilterSection from "./FilterSection";
 import { brands } from "./filterData";
 
-const BrandFilter = () => {
+const BrandFilter = ({filters, setFilters}) => {
   return (
     <FilterSection title="Brand">
       <div className="space-y-3">
@@ -12,6 +12,15 @@ const BrandFilter = () => {
           >
             <input
               type="checkbox"
+              checked={filters.brand === brand.name}
+              onChange={() => {
+                setFilters((prev) => ({
+                  ...prev,
+                  brand: prev.brand === brand.name
+                    ? ""
+                    : brand.name,
+                }));
+              }}
               className="h-4 w-4 rounded border-border accent-primary"
             />
 
