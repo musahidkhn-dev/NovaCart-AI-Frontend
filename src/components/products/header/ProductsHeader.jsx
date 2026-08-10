@@ -1,6 +1,6 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 
-const ProductsHeader = ({ sort, setSort, productCount }) => {
+const ProductsHeader = ({ sort, setSort, productCount, search, setSearch, totalProducts }) => {
   return (
     <div className="border-b border-border pb-8">
       {/* Breadcrumb */}
@@ -23,12 +23,27 @@ const ProductsHeader = ({ sort, setSort, productCount }) => {
             Discover thousands of products powered by AI recommendations, smart
             comparisons and trusted sellers.
           </p>
+          <div className="relative mt-5 max-w-xl">
+            <Search
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-muted"
+            />
+
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              className="w-full rounded-2xl border border-border bg-white py-3 pl-11 pr-4 text-sm outline-none transition focus:border-primary"
+            />
+          </div>
         </div>
 
         <div className="flex flex-col items-start gap-3 lg:items-end">
           <p className="text-sm text-muted">
-            Showing{" "} <span className="font-semibold text-heading">{productCount}</span> of{" "}
-            <span className="font-semibold text-heading">240</span> products
+            Showing{" "}
+            <span className="font-semibold text-heading">{productCount}</span>{" "}
+            of <span className="font-semibold text-heading">{totalProducts}</span> products
           </p>
 
           <select
@@ -45,7 +60,6 @@ const ProductsHeader = ({ sort, setSort, productCount }) => {
             <option value="price_high_to_low">Price : High to Low</option>
 
             <option value="highest_rated">Highest Rated</option>
-
           </select>
         </div>
       </div>
