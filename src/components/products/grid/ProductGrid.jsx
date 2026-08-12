@@ -52,8 +52,8 @@ const ProductGrid = ({ products, search, setSearch, filters, setFilters }) => {
     );
   }
   return (
-    <div className="grid grid-cols-1 gap-6 2xl:grid-cols-3">
-      <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="popLayout">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <motion.div
             key={product.id}
@@ -69,8 +69,8 @@ const ProductGrid = ({ products, search, setSearch, filters, setFilters }) => {
             <ProductCard product={product} />
           </motion.div>
         ))}
-      </AnimatePresence>
     </div>
+      </AnimatePresence>
   );
 };
 

@@ -13,9 +13,25 @@ const tabs = ["All", "AI Picks", "Trending", "Best Rated"];
 
 const FeaturedProducts = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const filteredProducts = productData.filter((product) => {
+    switch (activeTab) {
+      case "AI Picks":
+        return product.badge === "AI Pick";
+
+      case "Trending":
+        return product.badge === "Trending";
+
+      case "Best Rated":
+        return product.rating >= 4.8;
+
+      case "All":
+      default:
+        return true;
+    }
+  });
 
   return (
-    <Section id="featured-products" className="bg-white pt-8 pb-10">
+    <Section id="featured-products" className="bg-white py-10 sm:py-14 lg:py-16">
       <Container>
         {/* Header */}
 
@@ -29,11 +45,11 @@ const FeaturedProducts = () => {
             Featured Products
           </span>
 
-          <h2 className="mt-3 text-4xl lg:text-[42px] font-black leading-tight">
+          <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl lg:text-[42px]">
             Discover Nova AI's Picks
           </h2>
 
-          <p className="mx-auto mt-2 max-w-xl text-base leading-6 text-muted">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted sm:text-base">
             Handpicked products based on quality, popularity, value, and AI
             recommendations.
           </p>
@@ -41,12 +57,12 @@ const FeaturedProducts = () => {
 
         {/* Tabs */}
 
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-5">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+              className={`rounded-full px-4 py-2 text-xs font-medium transition-all sm:px-5 sm:py-2.5 sm:text-sm ${
                 activeTab === tab
                   ? "bg-primary text-white"
                   : "border border-border bg-white hover:border-primary"
@@ -59,8 +75,8 @@ const FeaturedProducts = () => {
 
         {/* Products */}
 
-        <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          {productData.map((product) => (
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 2xl:grid-cols-4">
+          {filteredProducts.map((product) => (
             <div key={product.id} className="flex justify-center">
               <ProductCard product={product} />
             </div>
@@ -69,7 +85,7 @@ const FeaturedProducts = () => {
 
         {/* CTA */}
 
-        <div className="mt-6 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <Link
             to="/products"
             className="group inline-flex items-baseline gap-1 rounded-full border border-border px-6 py-3 font-medium transition-all hover:border-primary hover:bg-primary/5"

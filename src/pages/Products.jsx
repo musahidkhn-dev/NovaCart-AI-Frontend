@@ -9,22 +9,89 @@ import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
 
 import { products } from "../components/products/data/products";
+import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category") || "";
+  const searchFromUrl = searchParams.get("search") || "";  
+
   const [filters, setFilters] = useState({
-    category: "",
+    category: categoryFromUrl,
     brand: "",
     price: null,
     rating: null,
   });
 
   const [sort, setSort] = useState("featured");
-  const [search, setSearch] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [search, setSearch] = useState(searchFromUrl);
+  const [debouncedSearch, setDebouncedSearch] = useState(searchFromUrl);
   const [currentPage, setCurrentPage] = useState(1);
 
   const productsPerPage = 6;
+  const categoryMap = {
+    Electronics: ["Smartphones", "Headphones"],
+    Computers: ["Laptops"],
+    Fashion: [],
+    Home: [],
+    Sports: [],
+    Gaming: [],
+    Books: [],
+    Groceries: [],
+  };
 
+  const searchAliases = {
+  electronics: [
+    "electronics",
+    "smartphone",
+    "smartphones",
+    "phone",
+    "phones",
+    "mobile",
+    "mobiles",
+    "headphone",
+    "headphones",
+  ],
+
+  computers: [
+    "computer",
+    "computers",
+    "laptop",
+    "laptops",
+  ],
+
+  fashion: [
+    "fashion",
+    "clothing",
+    "clothes",
+  ],
+
+  home: [
+    "home",
+    "home appliances",
+  ],
+
+  sports: [
+    "sports",
+    "sport",
+  ],
+
+  gaming: [
+    "gaming",
+    "game",
+    "games",
+  ],
+
+  books: [
+    "book",
+    "books",
+  ],
+
+  groceries: [
+    "grocery",
+    "groceries",
+  ],
+};
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
@@ -34,21 +101,34 @@ const Products = () => {
   }, [search]);
 
   const filteredProducts = products.filter((product) => {
-    if (debouncedSearch.trim()) {
-      const query = debouncedSearch.toLowerCase().trim();
 
-      const matchesSearch =
-        product.title.toLowerCase().includes(query) ||
-        product.brand.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query);
+    const activeSearch = searchFromUrl || debouncedSearch;
 
+    if (activeSearch.trim()) {
+      const query = activeSearch.toLowerCase().trim();
+
+      const aliases = searchAliases[query] || [query];
+
+      const matchesSearch = aliases.some(
+        (keyword) => 
+          product.title.toLowerCase().includes(keyword) ||
+          product.brand.toLowerCase().includes(keyword) ||
+          product.category.toLowerCase().includes(keyword),
+      );
+        
       if (!matchesSearch) {
         return false;
       }
     }
 
-    if (filters.category && product.category !== filters.category) {
-      return false;
+    if (filters.category && !activeSearch) {
+      const allowedCategories = categoryMap[filters.category] ?? [
+        filters.category,
+      ];
+
+      if (!allowedCategories.includes(product.category)) {
+        return false;
+      }
     }
 
     if (filters.brand && product.brand !== filters.brand) {
@@ -110,6 +190,16 @@ const Products = () => {
           setSort={(value) => {
             setSort(value);
             setCurrentPage(1);
+            
+            const params = new URLSearchParams(searchParams);
+
+            if(value.trim()) {
+              params.set("search", value);
+            } else {
+              params.delete("search");
+            }
+
+            setSearchParams(params, { replace: true });
           }}
           productCount={sortedProducts.length}
           totalProducts={products.length}
@@ -120,8 +210,8 @@ const Products = () => {
           }}
         />
 
-        <div className="mt-10 flex gap-8">
-          <aside className="hidden w-72 lg:block">
+        <div className="mt-10 flex flex-col gap-8 lg:flex-row">
+          <aside className="w-72 shrink-0">
             <FilterSidebar
               filters={filters}
               setFilters={(value) => {
@@ -131,7 +221,7 @@ const Products = () => {
             />
           </aside>
 
-          <main className="flex-1">
+          <main className="min-w-0 flex-1">
             <ProductGrid
               products={paginatedProducts}
               search={search}

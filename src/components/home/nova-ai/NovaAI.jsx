@@ -22,7 +22,7 @@ const NovaAI = () => {
   }, []);
 
   return (
-    <Section className="bg-gradient-to-b from-[#FFFDFB] to-white py-20">
+    <Section className="bg-gradient-to-b from-[#FFFDFB] to-white py-12 sm:py-16 lg:py-20">
       <Container>
         {/* Header */}
 
@@ -36,11 +36,11 @@ const NovaAI = () => {
             Nova AI
           </span>
 
-          <h2 className="mt-5 text-4xl font-black tracking-tight lg:text-5xl">
+          <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:mt-5 lg:text-5xl">
             Your Intelligent Shopping Copilot
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-muted">
+          <p className="mt-4 text-sm leading-6 text-muted sm:text-lg sm:leading-8 lg:mt-5">
             Experience AI-powered shopping with smart recommendations, instant
             comparisons, review summaries and seller tools — all in one place.
           </p>
@@ -48,7 +48,7 @@ const NovaAI = () => {
 
         {/* Main Layout */}
 
-        <div className="mt-16 space-y-10">
+        <div className="mt-10 space-y-8 sm:mt-12 sm:space-y-10 lg:mt-16">
           {/* LEFT : Chat Preview */}
 
           <motion.div
@@ -59,7 +59,7 @@ const NovaAI = () => {
           >
             {/* Chat Header */}
 
-            <div className="flex items-center justify-between border-b border-border px-6 py-5">
+            <div className="flex items-center justify-between border-b border-border px-4 py-4 sm:px-6 sm:py-5">
               <div>
                 <h3 className="text-lg font-bold">Nova AI Assistant</h3>
 
@@ -74,8 +74,8 @@ const NovaAI = () => {
 
             {/* Chat */}
 
-            <div className="flex flex-col gap-4 p-5">
-              <div className="ml-auto max-w-[360px] rounded-[24px] bg-primary px-6 py-4 text-white shadow-xl">
+            <div className="flex flex-col gap-4 p-4 sm:p-5">
+              <div className="ml-auto max-w-[85%] rounded-[24px] bg-primary px-4 py-3 text-sm text-white shadow-xl sm:max-w-[360px] sm:px-6 sm:py-4 sm:text-base">
                 I need a laptop under ₹80,000 for coding.
               </div>
 
@@ -86,7 +86,7 @@ const NovaAI = () => {
                   <span className="h-2 w-2 animate-bounce rounded-full bg-primary [animation-delay:300ms]"></span>
                 </div>
               ) : (
-                <div className="w-[70%] rounded-3xl border border-border bg-white p-6 shadow-sm">
+                <div className="w-full rounded-3xl border border-border bg-white p-4 shadow-sm sm:w-[70%] sm:p-6">
                   <p className="font-medium">
                     Based on your budget, I recommend:
                   </p>
@@ -120,7 +120,7 @@ const NovaAI = () => {
 
           {/* RIGHT : Feature Cards */}
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {aiFeatures.map((feature) => (
               <AIFeatureCard key={feature.id} feature={feature} />
             ))}

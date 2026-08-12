@@ -22,7 +22,7 @@ const Footer = () => {
               🟤NovaCart <br /> AI Commerce
             </h2>
 
-            <p className="mt-5 max-w-lg leading-8 text-muted">
+            <p className="mt-5 max-w-lg text-sm  leading-7 text-muted sm:text-base sm:leading-8">
               AI-powered eCommerce platform helping users discover products,
               compare options and shop smarter with confidence.
             </p>
@@ -50,7 +50,7 @@ const Footer = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-3"
           >
             {footerLinks.map((section) => (
               <FooterLinks

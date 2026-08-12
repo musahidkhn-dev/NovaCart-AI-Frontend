@@ -26,7 +26,7 @@ const Categories = () => {
   };
 
   return (
-    <Section id="categories" className="bg-[#FCFAF7] py-24">
+    <Section id="categories" className="bg-[#FCFAF7] py-14 sm:py-20 lg:py-24">
       <Container>
         {/* Header */}
 
@@ -40,11 +40,11 @@ const Categories = () => {
               Categories
             </span>
 
-            <h2 className="mt-5 text-4xl font-black tracking-tight lg:text-5xl">
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl lg:mt-5 lg:text-5xl">
               Shop by Category
             </h2>
 
-            <p className="mt-4 max-w-xl text-lg leading-8 text-muted">
+            <p className="mt-3 max-w-xl text-sm leading-6 text-muted sm:mt-4 sm:text-lg sm:leading-8">
               Everything you need, organized into smart shopping categories.
             </p>
           </motion.div>
@@ -73,7 +73,7 @@ const Categories = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="no-scrollbar mt-14 flex snap-x gap-6 overflow-x-auto scroll-smooth pb-4"
+            className="no-scrollbar mt-8 flex snap-x gap-4 overflow-x-auto scroll-smooth pb-4 sm:mt-10 sm:gap-6 lg:mt-14"
           >
             {categoryData.map((category) => (
               <div key={category.id} className="snap-start">
