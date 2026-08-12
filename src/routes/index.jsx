@@ -12,6 +12,10 @@ import Products from "../pages/Products";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
+import AdminLayout from "../layouts/AdminLayout";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdminUsers from "../pages/admin/AdminUsers";
+import AdminSeller from "../pages/admin/AdminSeller";
 
 
 const router = createBrowserRouter([
@@ -54,13 +58,32 @@ const router = createBrowserRouter([
       {
         path: "/wishlist",
         element: <Wishlist />
-      }
+      },
+      {
+        path:"/admin",
+        element: <AdminLayout />,
+        children: [
+          {
+            index: true, 
+            element: <AdminDashboard />,
+          },
+          {
+            path: "users",
+            element: <AdminUsers />,
+          },
+          {
+            path: "sellers",
+            element: <AdminSeller />
+          }
+        ],
+      },
     ],
   },
   {
     path: "*",
     element: <NotFound />,
   },
+  
 ]);
 
 export default router;
