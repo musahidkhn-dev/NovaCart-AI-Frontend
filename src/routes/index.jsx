@@ -22,6 +22,7 @@ import AdminCategories from "../pages/admin/AdminCategories";
 import AdminBrand from "../pages/admin/AdminBrand";
 import AdminDelivery from "../pages/admin/AdminDelivery";
 import AdminReviews from "../pages/admin/AdminReviews";
+import AdminSettings from "../pages/admin/AdminSettings";
 
 
 const router = createBrowserRouter([
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
           {
             path: "reviews",
             element: <AdminReviews />,
+          },
+          {
+            path: "settings",
+            element: <AdminSettings />,
           },
         ],
       },
